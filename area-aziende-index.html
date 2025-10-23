@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Area Aziende EnneSG - Audit ISO 19011 online, documentazione riservata e procedure personalizzate">
+    <title>Area Aziende - EnneSG</title>
+    <link rel="icon" href="../assets/ennesg-icon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            color: #0f172a;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            text-align: center;
+        }
+        
+        .navbar img {
+            height: 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: #0f172a;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        
+        .page-header .highlight {
+            color: #10b981;
+        }
+        
+        .page-header p {
+            font-size: 1.4rem;
+            color: #64748b;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 40px 50px;
+            border-radius: 20px;
+            margin-bottom: 70px;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .info-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-box p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+        
+        .info-box li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .info-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            border-top: 5px solid #10b981;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+        
+        .service-card h2 {
+            color: #10b981;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-card p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-card li {
+            color: #64748b;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.7;
+        }
+        
+        .service-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .iso19011-section {
+            background: white;
+            padding: 70px 50px;
+            border-radius: 25px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            margin-bottom: 80px;
+        }
+        
+        .iso19011-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        
+        .iso19011-section .intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .audit-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-bottom: 50px;
+        }
+        
+        .feature-card {
+            background: #f0fdf4;
+            padding: 35px 30px;
+            border-radius: 15px;
+            border-left: 5px solid #10b981;
+        }
+        
+        .feature-card h3 {
+            color: #065f46;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-card p {
+            color: #047857;
+            line-height: 1.7;
+        }
+        
+        .process-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #10b981;
+        }
+        
+        .process-box h3 {
+            color: #065f46;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .process-step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+        
+        .process-step h4 {
+            color: #065f46;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .process-step p {
+            color: #047857;
+            font-size: 0.95rem;
+        }
+        
+        .benefits-section {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 70px 50px;
+            border-radius: 25px;
+            margin-bottom: 80px;
+        }
+        
+        .benefits-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 35px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .benefit-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-item p {
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .access-section {
+            background: white;
+            padding: 70px 50px;
+            border-radius: 25px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .access-section h2 {
+            font-size: 2.8rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        
+        .access-section p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .access-box {
+            background: #f0fdf4;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #10b981;
+        }
+        
+        .access-box h3 {
+            color: #065f46;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+        }
+        
+        .access-info {
+            text-align: left;
+            color: #047857;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .access-button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .access-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        .cta-section {
+            background: white;
+            padding: 70px 50px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.8rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            color: #64748b;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 50px 30px 30px;
+            margin-top: 100px;
+            text-align: center;
+        }
+        
+        footer img {
+            height: 70px;
+            margin-bottom: 25px;
+            filter: brightness(0) invert(1);
+        }
+        
+        footer p {
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <img src="../assets/ennesg-logo-horizontal.svg" alt="EnneSG Logo">
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1><span class="highlight">Area</span> Aziende</h1>
+            <p>Spazio dedicato per le aziende clienti con accesso a documentazione riservata, audit ISO 19011 online, procedure personalizzate e supporto continuo. Tutto in un unico portale accessibile 24/7.</p>
+        </div>
+        
+        <div class="info-box">
+            <h2>🏢 Benvenuti nell'Area Riservata</h2>
+            <p>Questo spazio è dedicato esclusivamente alle aziende clienti di EnneSG per facilitare la gestione della documentazione, gli audit periodici e la comunicazione continua. Ogni azienda ha accesso alla propria area personalizzata.</p>
+            <ul>
+                <li>Accesso protetto con credenziali personali</li>
+                <li>Documentazione sempre aggiornata e disponibile</li>
+                <li>Audit ISO 19011 completamente online</li>
+                <li>Comunicazione diretta con il consulente</li>
+                <li>Archivio storico di tutti i documenti</li>
+            </ul>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">📋</span>
+                <h2>Audit ISO 19011 Online</h2>
+                <p>Sistema completo per la gestione degli audit interni secondo la norma ISO 19011:2018, con compilazione checklist online, evidenze fotografiche e report automatici.</p>
+                <ul>
+                    <li>Checklist personalizzate per processo</li>
+                    <li>Compilazione guidata passo-passo</li>
+                    <li>Upload evidenze e fotografie</li>
+                    <li>Gestione non conformità</li>
+                    <li>Piani azioni correttive</li>
+                    <li>Report audit automatici</li>
+                    <li>Storico audit precedenti</li>
+                    <li>Monitoraggio follow-up</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">📁</span>
+                <h2>Documentazione Aziendale</h2>
+                <p>Archivio completo e sempre aggiornato di tutta la documentazione del sistema di gestione, procedure operative e modulistica aziendale.</p>
+                <ul>
+                    <li>Manuale gestione integrato</li>
+                    <li>Procedure operative</li>
+                    <li>Istruzioni di lavoro</li>
+                    <li>Modulistica compilabile</li>
+                    <li>Registrazioni e verbali</li>
+                    <li>Politiche aziendali</li>
+                    <li>Organigrammi e mansionari</li>
+                    <li>Download illimitati</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">🔧</span>
+                <h2>Procedure Personalizzate</h2>
+                <p>Accesso diretto alle procedure operative specifiche sviluppate su misura per i processi e le attività della tua azienda.</p>
+                <ul>
+                    <li>Procedure specifiche per processo</li>
+                    <li>Istruzioni operative dettagliate</li>
+                    <li>Flow chart e diagrammi</li>
+                    <li>Check list operative</li>
+                    <li>Schede tecniche</li>
+                    <li>Modelli e template</li>
+                    <li>Aggiornamenti real-time</li>
+                    <li>Versioning automatico</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">📊</span>
+                <h2>Report e Indicatori</h2>
+                <p>Dashboard con indicatori di performance (KPI), report periodici, analisi trend e monitoraggio obiettivi del sistema di gestione.</p>
+                <ul>
+                    <li>KPI personalizzati</li>
+                    <li>Grafici e trend</li>
+                    <li>Report mensili/trimestrali</li>
+                    <li>Analisi non conformità</li>
+                    <li>Monitoraggio azioni correttive</li>
+                    <li>Stato obiettivi</li>
+                    <li>Export dati Excel/PDF</li>
+                    <li>Cruscotto direzionale</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="iso19011-section">
+            <h2>🔍 Audit ISO 19011 - Come Funziona</h2>
+            <p class="intro">La nuova norma ISO 19011:2018 richiede una fase di verifica documentale preliminare che può essere svolta online. Il nostro sistema permette di gestire questa fase in modo efficiente e strutturato.</p>
+            
+            <div class="audit-features">
+                <div class="feature-card">
+                    <h3>📝 Checklist Digitali</h3>
+                    <p>Checklist personalizzate per ogni processo aziendale, compilabili online con risposta guidata e note esplicative</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📸 Evidenze Oggettive</h3>
+                    <p>Upload diretto di documenti, fotografie e registrazioni come evidenza oggettiva delle verifiche</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🚨 Gestione NC</h3>
+                    <p>Rilevazione automatica non conformità con categorizzazione (maggiore/minore) e assegnazione responsabili</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>✅ Azioni Correttive</h3>
+                    <p>Piano azioni correttive integrato con scadenze, responsabili e follow-up automatico delle chiusure</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📈 Report Automatici</h3>
+                    <p>Generazione automatica report audit completo con grafici, sintesi non conformità e raccomandazioni</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔄 Storico Completo</h3>
+                    <p>Archivio di tutti gli audit precedenti con possibilità di confronto e analisi trend nel tempo</p>
+                </div>
+            </div>
+            
+            <div class="process-box">
+                <h3>Processo Audit Online in 5 Passaggi</h3>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Accesso</h4>
+                        <p>Ricevi link e credenziali per l'area audit della tua azienda</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Compilazione</h4>
+                        <p>Compila le checklist online con evidenze e documenti</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Verifica</h4>
+                        <p>Il consulente verifica le risposte e richiede chiarimenti</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Report</h4>
+                        <p>Generazione automatica del report audit completo</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h4>Follow-up</h4>
+                        <p>Monitoraggio chiusura azioni correttive fino alla verifica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="benefits-section">
+            <h2>✨ Vantaggi dell'Area Aziende</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">⏰</span>
+                    <h3>Disponibile 24/7</h3>
+                    <p>Accesso ai documenti e alle funzionalità in qualsiasi momento, da qualsiasi dispositivo</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">💾</span>
+                    <h3>Sempre Aggiornato</h3>
+                    <p>Documenti e procedure sempre alla versione più recente, con notifiche di aggiornamento</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔒</span>
+                    <h3>Sicurezza Garantita</h3>
+                    <p>Accesso protetto, backup automatici e conformità GDPR per i dati aziendali</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">📱</span>
+                    <h3>Multi-Dispositivo</h3>
+                    <p>Funziona perfettamente su PC, tablet e smartphone per massima flessibilità</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Velocità</h3>
+                    <p>Riduce drasticamente i tempi di audit e gestione documentale aziendale</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <h3>Efficienza</h3>
+                    <p>Automatizza processi ripetitivi e migliora la tracciabilità delle attività</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="access-section">
+            <h2>🔐 Accesso Area Riservata</h2>
+            <p>Se sei un'azienda cliente, accedi alla tua area personale utilizzando le credenziali che ti sono state fornite. Primo accesso? Contattaci per ricevere le tue credenziali.</p>
+            
+            <div class="access-box">
+                <h3>Accedi alla Tua Area</h3>
+                <div class="access-info">
+                    <p><strong>Per accedere ti serve:</strong></p>
+                    <p>✓ Codice azienda univoco</p>
+                    <p>✓ Username fornito da EnneSG</p>
+                    <p>✓ Password personale</p>
+                    <p style="margin-top: 20px;"><strong>Non hai ancora le credenziali?</strong><br>Contatta il tuo consulente di riferimento o scrivi a info@ennesg.it</p>
+                </div>
+                <a href="mailto:info@ennesg.it?subject=Richiesta%20Credenziali%20Area%20Aziende" class="access-button">🔑 Richiedi Credenziali</a>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Diventa Cliente EnneSG</h2>
+            <p>Vuoi accedere all'Area Aziende e sfruttare tutti questi vantaggi? Contattaci per scoprire i nostri servizi di consulenza ISO e sicurezza sul lavoro.</p>
+            <a href="mailto:info@ennesg.it" class="cta-button">📧 Richiedi Informazioni</a>
+        </div>
+    </div>
+    
+    <footer>
+        <img src="../assets/ennesg-logo-horizontal.svg" alt="EnneSG">
+        <p style="margin-bottom: 15px;">EnneSG - Nicolò Sistemi di Gestione</p>
+        <p>Area Riservata Clienti - Audit e Documentazione Online</p>
+        <p style="margin-top: 25px;">&copy; 2025 Tutti i diritti riservati</p>
+    </footer>
+</body>
+</html>
