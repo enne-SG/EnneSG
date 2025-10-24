@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EnneSG Sistemi di Gestione - Consulenza e Formazione per ISO e Sicurezza sul Lavoro D.Lgs. 81/08">
+    <title>EnneSG Sistemi di Gestione | Consulenza ISO e D.Lgs. 81/08</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #ffffff;
+        }
+        
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 0;
+        }
+        
+        .header-top-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .header-contacts {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .header-contacts a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+        
+        .header-contacts a:hover {
+            opacity: 0.8;
+        }
+        
+        .header-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            border-left: 2px solid rgba(255,255,255,0.3);
+            padding-left: 20px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .badge {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* SERVICES SECTION */
+        .services {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .service-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .service-card li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--gray);
+        }
+        
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* AREAS SECTION */
+        .areas {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 20px;
+        }
+        
+        .areas-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .areas h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .area-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .area-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .area-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .area-card h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .area-card p {
+            opacity: 0.95;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .area-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .area-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .area-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        /* CTA SECTION */
+        .cta {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37,99,235,0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.8;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .tagline {
+                border-left: none;
+                border-top: 2px solid rgba(255,255,255,0.3);
+                padding-left: 0;
+                padding-top: 10px;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .header-top-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .header-contacts {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="header-contacts">
+                    <a href="mailto:info@ennesg.it">
+                        📧 info@ennesg.it
+                    </a>
+                    <a href="tel:+39XXXXXXXXXX">
+                        📱 +39 XXX XXX XXXX
+                    </a>
+                </div>
+                <div>
+                    🕐 Lun-Ven: 9:00 - 18:00
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo">
+                    Enne<span>SG</span>
+                </div>
+                <div class="tagline">
+                    Sistemi di Gestione
+                </div>
+            </div>
+            
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#servizi">Servizi</a>
+                <a href="#iso">ISO</a>
+                <a href="#sicurezza">D.Lgs. 81/08</a>
+                <a href="#contatti">Contatti</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>
+                <span>Consulenza</span> e <span>Formazione</span><br>
+                per la Tua Azienda
+            </h1>
+            <p class="hero-subtitle">
+                Partner affidabile per Sistemi di Gestione ISO e Sicurezza sul Lavoro
+            </p>
+            <div class="hero-badges">
+                <div class="badge">✓ Certificazioni ISO</div>
+                <div class="badge">✓ Conformità D.Lgs. 81/08</div>
+                <div class="badge">✓ Formazione Professionale</div>
+                <div class="badge">✓ Supporto Continuo</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SERVICES SECTION -->
+    <section class="services" id="servizi">
+        <h2 class="section-title">I Nostri Servizi</h2>
+        <p class="section-subtitle">
+            Soluzioni complete per la gestione aziendale e la conformità normativa
+        </p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Consulenza</h3>
+                <p>Supporto specializzato per l'implementazione e il mantenimento dei sistemi di gestione aziendali</p>
+                <ul>
+                    <li>Analisi e diagnosi aziendale</li>
+                    <li>Progettazione su misura</li>
+                    <li>Implementazione operativa</li>
+                    <li>Supporto alla certificazione</li>
+                    <li>Audit interni</li>
+                    <li>Assistenza continuativa</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🎓</div>
+                <h3>Formazione</h3>
+                <p>Corsi qualificati per lo sviluppo delle competenze del personale aziendale</p>
+                <ul>
+                    <li>Formazione obbligatoria</li>
+                    <li>Corsi specialistici</li>
+                    <li>Aggiornamenti periodici</li>
+                    <li>Formazione personalizzata</li>
+                    <li>Certificazioni riconosciute</li>
+                    <li>Modalità online e in presenza</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AREAS SECTION -->
+    <section class="areas" id="aree">
+        <div class="areas-content">
+            <h2>Le Nostre Aree di Competenza</h2>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-icon">⚙️</div>
+                    <h3>Sistemi ISO</h3>
+                    <p>Consulenza specializzata per l'implementazione e certificazione degli standard internazionali</p>
+                    <ul>
+                        <li>ISO 9001 - Qualità</li>
+                        <li>ISO 14001 - Ambiente</li>
+                        <li>ISO 45001 - Sicurezza</li>
+                        <li>ISO 27001 - Informazioni</li>
+                        <li>Gap Analysis</li>
+                        <li>Preparazione audit</li>
+                        <li>Mantenimento certificazioni</li>
+                    </ul>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">🛡️</div>
+                    <h3>D.Lgs. 81/08</h3>
+                    <p>Gestione completa della sicurezza e salute nei luoghi di lavoro</p>
+                    <ul>
+                        <li>RSPP Esterno</li>
+                        <li>Valutazione Rischi (DVR)</li>
+                        <li>Procedure di sicurezza</li>
+                        <li>Formazione lavoratori</li>
+                        <li>Corsi specialistici</li>
+                        <li>Sopralluoghi periodici</li>
+                        <li>Supporto normativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA SECTION -->
+    <section class="cta" id="contatti">
+        <h2>Inizia il Tuo Percorso</h2>
+        <p>Contattaci per una consulenza gratuita e scopri come possiamo aiutare la tua azienda</p>
+        <div>
+            <a href="mailto:info@ennesg.it" class="btn btn-primary">📧 Richiedi Consulenza</a>
+            <a href="tel:+39XXXXXXXXXX" class="btn btn-secondary">📱 Chiamaci</a>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    Enne<span>SG</span>
+                </div>
+                <p style="margin-bottom: 20px;">
+                    <strong>Sistemi di Gestione</strong>
+                </p>
+                <p>
+                    Consulenza e Formazione professionale per Sistemi ISO e Sicurezza sul Lavoro D.Lgs. 81/08
+                </p>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn">💼</a>
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Instagram">📷</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Servizi</h3>
+                <a href="#">Consulenza ISO</a>
+                <a href="#">Formazione Aziendale</a>
+                <a href="#">RSPP Esterno</a>
+                <a href="#">Valutazione Rischi</a>
+                <a href="#">Audit e Certificazioni</a>
+                <a href="#">Corsi Sicurezza</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Sistemi ISO</h3>
+                <a href="#">ISO 9001 - Qualità</a>
+                <a href="#">ISO 14001 - Ambiente</a>
+                <a href="#">ISO 45001 - Sicurezza</a>
+                <a href="#">ISO 27001 - Informazioni</a>
+                <a href="#">Gap Analysis</a>
+                <a href="#">Mantenimento</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p>📧 <strong>Email:</strong><br>info@ennesg.it</p>
+                <p>📱 <strong>Telefono:</strong><br>+39 XXX XXX XXXX</p>
+                <p>📍 <strong>Sede:</strong><br>[Indirizzo completo]</p>
+                <p>🕐 <strong>Orari:</strong><br>Lun-Ven: 9:00 - 18:00</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 EnneSG Sistemi di Gestione. Tutti i diritti riservati.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                P.IVA: XXXXXXXXXXX | Privacy Policy | Cookie Policy
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

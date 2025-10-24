@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servizi EnneSG - Consulenza e Formazione per Sistemi di Gestione e Sicurezza sul Lavoro">
+    <title>I Nostri Servizi | EnneSG Sistemi di Gestione</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #ffffff;
+        }
+        
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 0;
+        }
+        
+        .header-top-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .header-contacts {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .header-contacts a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+        
+        .header-contacts a:hover {
+            opacity: 0.8;
+        }
+        
+        .header-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            border-left: 2px solid rgba(255,255,255,0.3);
+            padding-left: 20px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* PAGE HEADER */
+        .page-header {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .page-header h1 span {
+            color: var(--primary-color);
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* CONTENT */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .intro-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .intro-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .intro-section p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .service-detail {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 50px;
+            transition: all 0.3s;
+        }
+        
+        .service-detail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .service-detail h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .service-detail .subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        
+        .service-detail p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .service-detail h4 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin: 30px 0 20px;
+            padding-top: 25px;
+            border-top: 2px solid #e2e8f0;
+        }
+        
+        .service-detail ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-detail li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .service-detail li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .process-section {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 20px;
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+        
+        .process-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            font-size: 1rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .benefits-section {
+            margin-bottom: 80px;
+        }
+        
+        .benefits-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: var(--light);
+            border-left: 4px solid var(--primary-color);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover {
+            background: #eff6ff;
+            transform: translateX(5px);
+        }
+        
+        .benefit-card h4 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37,99,235,0.3);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.8;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .tagline {
+                border-left: none;
+                border-top: 2px solid rgba(255,255,255,0.3);
+                padding-left: 0;
+                padding-top: 10px;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-top-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .header-contacts {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="header-contacts">
+                    <a href="mailto:info@ennesg.it">
+                        📧 info@ennesg.it
+                    </a>
+                    <a href="tel:+39XXXXXXXXXX">
+                        📱 +39 XXX XXX XXXX
+                    </a>
+                </div>
+                <div>
+                    🕐 Lun-Ven: 9:00 - 18:00
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="logo-section">
+                <a href="ennesg-new.html" class="logo">
+                    Enne<span>SG</span>
+                </a>
+                <div class="tagline">
+                    Sistemi di Gestione
+                </div>
+            </div>
+            
+            <nav>
+                <a href="ennesg-new.html">Home</a>
+                <a href="servizi.html" class="active">Servizi</a>
+                <a href="iso.html">ISO</a>
+                <a href="sicurezza.html">D.Lgs. 81/08</a>
+                <a href="contatti.html">Contatti</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1>I Nostri <span>Servizi</span></h1>
+        <p>Consulenza e Formazione professionale per la crescita della tua azienda</p>
+    </section>
+    
+    <!-- INTRO -->
+    <div class="container">
+        <div class="intro-section">
+            <h2>Soluzioni Complete per la Tua Azienda</h2>
+            <p>
+                Offriamo servizi integrati di consulenza e formazione per supportare le aziende nel percorso di 
+                implementazione e mantenimento dei sistemi di gestione, garantendo conformità normativa ed 
+                eccellenza operativa.
+            </p>
+        </div>
+        
+        <!-- SERVICES DETAIL -->
+        <div class="services-grid">
+            <!-- CONSULENZA -->
+            <div class="service-detail">
+                <h3>📋 Consulenza</h3>
+                <p class="subtitle">Supporto Specializzato per i Tuoi Sistemi di Gestione</p>
+                <p>
+                    La nostra consulenza ti accompagna in ogni fase del percorso: dall'analisi iniziale 
+                    all'implementazione, dalla certificazione al mantenimento. Un partner affidabile per 
+                    raggiungere e mantenere gli standard di qualità, sicurezza e conformità.
+                </p>
+                
+                <h4>Servizi di Consulenza ISO</h4>
+                <ul>
+                    <li>Gap Analysis e diagnosi iniziale dello stato attuale</li>
+                    <li>Progettazione sistema di gestione personalizzato</li>
+                    <li>Implementazione operativa con affiancamento costante</li>
+                    <li>Redazione manuale, procedure e documentazione</li>
+                    <li>Audit interni e preparazione alla certificazione</li>
+                    <li>Supporto durante l'audit dell'ente certificatore</li>
+                    <li>Mantenimento e miglioramento continuo</li>
+                    <li>Riesame direzione e gestione non conformità</li>
+                </ul>
+                
+                <h4>Consulenza Sicurezza D.Lgs. 81/08</h4>
+                <ul>
+                    <li>Servizio RSPP Esterno qualificato</li>
+                    <li>Redazione Documento Valutazione Rischi (DVR)</li>
+                    <li>Valutazioni rischi specifiche (chimico, biologico, stress, ecc.)</li>
+                    <li>Elaborazione procedure operative di sicurezza</li>
+                    <li>Piano emergenza ed evacuazione</li>
+                    <li>Sopralluoghi e verifiche periodiche in azienda</li>
+                    <li>Riunione periodica ex art. 35</li>
+                    <li>Supporto in caso di ispezioni</li>
+                </ul>
+                
+                <h4>Vantaggi della Consulenza</h4>
+                <ul>
+                    <li>Esperienza consolidata in diversi settori</li>
+                    <li>Approccio personalizzato sulle tue esigenze</li>
+                    <li>Supporto continuo e assistenza illimitata</li>
+                    <li>Risultati concreti e misurabili</li>
+                    <li>Riduzione rischi e costi di non conformità</li>
+                    <li>Tempistiche rispettate e pianificazione accurata</li>
+                </ul>
+            </div>
+            
+            <!-- FORMAZIONE -->
+            <div class="service-detail">
+                <h3>🎓 Formazione</h3>
+                <p class="subtitle">Sviluppo delle Competenze del Personale</p>
+                <p>
+                    La formazione è fondamentale per la crescita aziendale. Offriamo corsi qualificati, 
+                    riconosciuti e personalizzati per sviluppare le competenze del personale in materia di 
+                    qualità, ambiente, sicurezza e sistemi di gestione.
+                </p>
+                
+                <h4>Formazione Sistemi di Gestione</h4>
+                <ul>
+                    <li>Corso introduttivo ai Sistemi di Gestione ISO</li>
+                    <li>Formazione ISO 9001 - Gestione Qualità</li>
+                    <li>Formazione ISO 14001 - Gestione Ambientale</li>
+                    <li>Formazione ISO 45001 - Salute e Sicurezza</li>
+                    <li>Corso Lead Auditor e Internal Auditor</li>
+                    <li>Gestione documentale e procedure operative</li>
+                    <li>Process Approach e Risk Based Thinking</li>
+                    <li>Gestione non conformità e azioni correttive</li>
+                </ul>
+                
+                <h4>Formazione Obbligatoria D.Lgs. 81/08</h4>
+                <ul>
+                    <li>Formazione generale e specifica lavoratori (4/8/12 ore)</li>
+                    <li>Formazione preposti alla sicurezza (8 ore)</li>
+                    <li>Formazione dirigenti (16 ore)</li>
+                    <li>Corso RSPP Datore di Lavoro (16/32/48 ore)</li>
+                    <li>Addetti antincendio rischio basso/medio/alto</li>
+                    <li>Addetti primo soccorso gruppo A/B/C</li>
+                    <li>Aggiornamenti periodici obbligatori</li>
+                    <li>RLS - Rappresentante Lavoratori Sicurezza</li>
+                </ul>
+                
+                <h4>Corsi Specialistici</h4>
+                <ul>
+                    <li>PES/PAV - Rischio elettrico CEI 11-27</li>
+                    <li>Lavori in quota e DPI 3° categoria</li>
+                    <li>Spazi confinati DPR 177/2011</li>
+                    <li>Ponteggi - Montaggio, uso e smontaggio (Pi.M.U.S.)</li>
+                    <li>Carrelli elevatori, piattaforme, gru</li>
+                    <li>Amianto - Rischio esposizione</li>
+                    <li>HACCP - Sicurezza alimentare</li>
+                    <li>Corsi personalizzati su richiesta</li>
+                </ul>
+                
+                <h4>Modalità di Erogazione</h4>
+                <ul>
+                    <li>Corsi in presenza presso la tua azienda o sede esterna</li>
+                    <li>Formazione online in modalità e-learning</li>
+                    <li>Webinar interattivi con docente in diretta</li>
+                    <li>Formazione blended (mista online/presenza)</li>
+                    <li>Attestati riconosciuti e validi su tutto il territorio</li>
+                    <li>Registro presenze e materiale didattico incluso</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- PROCESSO -->
+        <div class="process-section">
+            <h2>Il Nostro Metodo di Lavoro</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Analisi</h4>
+                    <p>Valutiamo lo stato attuale e definiamo obiettivi chiari e raggiungibili</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Progettazione</h4>
+                    <p>Sviluppiamo soluzioni personalizzate sulle tue specifiche esigenze</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Implementazione</h4>
+                    <p>Ti affianchiamo nell'applicazione pratica con supporto costante</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Formazione</h4>
+                    <p>Formiamo il personale per garantire competenza ed autonomia</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Verifica</h4>
+                    <p>Controlliamo l'efficacia attraverso audit e verifiche sul campo</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>Miglioramento</h4>
+                    <p>Ti supportiamo nel mantenimento e nel miglioramento continuo</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BENEFICI -->
+        <div class="benefits-section">
+            <h2>Perché Scegliere EnneSG</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>🎯 Esperienza Consolidata</h4>
+                    <p>Anni di esperienza nell'implementazione di sistemi di gestione in diversi settori industriali</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>🤝 Approccio Personalizzato</h4>
+                    <p>Ogni azienda è unica: progettiamo soluzioni su misura, non standard preconfezionati</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>💼 Supporto Continuo</h4>
+                    <p>Assistenza costante per mantenimento, aggiornamenti e miglioramento del sistema</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>📊 Risultati Misurabili</h4>
+                    <p>Focus su miglioramenti concreti: efficienza, riduzione costi, soddisfazione cliente</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>⚡ Tempistiche Rispettate</h4>
+                    <p>Pianificazione realistica e rispetto dei tempi concordati per raggiungere gli obiettivi</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>🎓 Formazione Efficace</h4>
+                    <p>Docenti qualificati con esperienza pratica, non solo teoria ma applicazione immediata</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Vuoi Saperne di Più?</h2>
+            <p>Contattaci per una consulenza gratuita e scopri come possiamo aiutare la tua azienda</p>
+            <a href="contatti.html" class="btn btn-primary">📧 Richiedi Informazioni</a>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    Enne<span>SG</span>
+                </div>
+                <p style="margin-bottom: 20px;">
+                    <strong>Sistemi di Gestione</strong>
+                </p>
+                <p>
+                    Consulenza e Formazione professionale per Sistemi ISO e Sicurezza sul Lavoro D.Lgs. 81/08
+                </p>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn">💼</a>
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Instagram">📷</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Servizi</h3>
+                <a href="servizi.html">Consulenza ISO</a>
+                <a href="servizi.html">Formazione Aziendale</a>
+                <a href="sicurezza.html">RSPP Esterno</a>
+                <a href="sicurezza.html">Valutazione Rischi</a>
+                <a href="iso.html">Audit e Certificazioni</a>
+                <a href="servizi.html">Corsi Sicurezza</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Sistemi ISO</h3>
+                <a href="iso.html">ISO 9001 - Qualità</a>
+                <a href="iso.html">ISO 14001 - Ambiente</a>
+                <a href="iso.html">ISO 45001 - Sicurezza</a>
+                <a href="iso.html">ISO 27001 - Informazioni</a>
+                <a href="iso.html">Gap Analysis</a>
+                <a href="iso.html">Mantenimento</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p>📧 <strong>Email:</strong><br>info@ennesg.it</p>
+                <p>📱 <strong>Telefono:</strong><br>+39 XXX XXX XXXX</p>
+                <p>📍 <strong>Sede:</strong><br>[Indirizzo completo]</p>
+                <p>🕐 <strong>Orari:</strong><br>Lun-Ven: 9:00 - 18:00</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 EnneSG Sistemi di Gestione. Tutti i diritti riservati.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                P.IVA: XXXXXXXXXXX | Privacy Policy | Cookie Policy
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

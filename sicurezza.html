@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sicurezza sul Lavoro D.Lgs. 81/08 - RSPP, DVR, Formazione e Consulenza">
+    <title>Sicurezza sul Lavoro D.Lgs. 81/08 | EnneSG Sistemi di Gestione</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #f59e0b;
+            --danger: #dc2626;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #ffffff;
+        }
+        
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 0;
+        }
+        
+        .header-top-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .header-contacts {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .header-contacts a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+        
+        .header-contacts a:hover {
+            opacity: 0.8;
+        }
+        
+        .header-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            border-left: 2px solid rgba(255,255,255,0.3);
+            padding-left: 20px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* PAGE HEADER */
+        .page-header {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .page-header h1 span {
+            color: var(--danger);
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* ALERT BOX */
+        .alert-box {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 60px auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+        
+        .alert-box h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .alert-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        /* CONTENT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+        
+        .intro-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .intro-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .intro-section p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .service-card {
+            background: white;
+            border: 3px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 45px;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-color: var(--danger);
+        }
+        
+        .service-card h3 {
+            font-size: 2.2rem;
+            color: var(--danger);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .service-card .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        
+        .service-card p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .service-card h4 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin: 30px 0 20px;
+            padding-top: 25px;
+            border-top: 2px solid #e2e8f0;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-card li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        /* FORMAZIONE SECTION */
+        .formazione-section {
+            background: var(--light);
+            padding: 80px 40px;
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+        
+        .formazione-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .formazione-section .intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .corsi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .corso-card {
+            background: white;
+            border-left: 4px solid var(--secondary-color);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .corso-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .corso-card h4 {
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .corso-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .corso-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        /* RSPP SECTION */
+        .rspp-section {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 80px 40px;
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+        
+        .rspp-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .rspp-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.3s;
+        }
+        
+        .benefit-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .benefit-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-item p {
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.8;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .tagline {
+                border-left: none;
+                border-top: 2px solid rgba(255,255,255,0.3);
+                padding-left: 0;
+                padding-top: 10px;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-top-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .header-contacts {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="header-contacts">
+                    <a href="mailto:info@ennesg.it">
+                        📧 info@ennesg.it
+                    </a>
+                    <a href="tel:+39XXXXXXXXXX">
+                        📱 +39 XXX XXX XXXX
+                    </a>
+                </div>
+                <div>
+                    🕐 Lun-Ven: 9:00 - 18:00
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="logo-section">
+                <a href="ennesg-new.html" class="logo">
+                    Enne<span>SG</span>
+                </a>
+                <div class="tagline">
+                    Sistemi di Gestione
+                </div>
+            </div>
+            
+            <nav>
+                <a href="ennesg-new.html">Home</a>
+                <a href="servizi.html">Servizi</a>
+                <a href="iso.html">ISO</a>
+                <a href="sicurezza.html" class="active">D.Lgs. 81/08</a>
+                <a href="contatti.html">Contatti</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1>Sicurezza sul Lavoro<br><span>D.Lgs. 81/08</span></h1>
+        <p>Gestione completa della sicurezza e salute nei luoghi di lavoro in conformità normativa</p>
+    </section>
+    
+    <!-- ALERT BOX -->
+    <div class="container">
+        <div class="alert-box">
+            <h3>⚠️ Obbligo di Legge</h3>
+            <p>
+                Il D.Lgs. 81/08 (Testo Unico sulla Sicurezza) impone al datore di lavoro precisi obblighi 
+                in materia di tutela della salute e sicurezza dei lavoratori. La mancata ottemperanza comporta 
+                sanzioni penali e amministrative, oltre a responsabilità civili in caso di infortuni.
+            </p>
+        </div>
+        
+        <!-- INTRO -->
+        <div class="intro-section">
+            <h2>Proteggi la Tua Azienda e i Tuoi Lavoratori</h2>
+            <p>
+                La sicurezza sul lavoro non è solo un obbligo di legge, ma un investimento sulla salute 
+                dei lavoratori e sulla continuità aziendale. Ti affianchiamo in tutti gli aspetti della 
+                gestione della sicurezza con competenza, professionalità e supporto continuo.
+            </p>
+        </div>
+        
+        <!-- SERVIZI PRINCIPALI -->
+        <div class="services-grid">
+            <!-- RSPP ESTERNO -->
+            <div class="service-card">
+                <h3>🔧 RSPP Esterno</h3>
+                <p class="subtitle">Responsabile Servizio Prevenzione e Protezione</p>
+                <p>
+                    Servizio completo di RSPP esterno qualificato secondo l'art. 32 del D.Lgs. 81/08. 
+                    Un partner affidabile per la gestione della sicurezza aziendale in piena conformità normativa.
+                </p>
+                
+                <h4>Cosa Include il Servizio</h4>
+                <ul>
+                    <li>Nomina RSPP con requisiti di legge</li>
+                    <li>Coordinamento attività prevenzione e protezione</li>
+                    <li>Elaborazione procedure operative di sicurezza</li>
+                    <li>Riunione periodica ex art. 35</li>
+                    <li>Sopralluoghi e verifiche periodiche in azienda</li>
+                    <li>Aggiornamento continuo documentazione</li>
+                    <li>Supporto in caso di ispezioni ASL/INL</li>
+                    <li>Consulenza telefonica e email illimitata</li>
+                </ul>
+                
+                <h4>Vantaggi</h4>
+                <ul>
+                    <li>Piena conformità normativa garantita</li>
+                    <li>Costi certi con canone mensile fisso</li>
+                    <li>Nessun obbligo di aggiornamento formativo</li>
+                    <li>Esperienza consolidata in diversi settori</li>
+                    <li>Supporto continuo e reperibilità</li>
+                    <li>Riduzione rischio sanzioni</li>
+                </ul>
+            </div>
+            
+            <!-- DVR -->
+            <div class="service-card">
+                <h3>📋 Valutazione dei Rischi</h3>
+                <p class="subtitle">DVR e Valutazioni Specifiche</p>
+                <p>
+                    Redazione completa del Documento di Valutazione dei Rischi secondo l'art. 28 del D.Lgs. 81/08 
+                    e tutte le valutazioni specifiche obbligatorie per la tua attività.
+                </p>
+                
+                <h4>DVR Completo</h4>
+                <ul>
+                    <li>Identificazione e valutazione rischi per mansione</li>
+                    <li>Misure di prevenzione e protezione</li>
+                    <li>Programma miglioramenti nel tempo</li>
+                    <li>Individuazione DPI necessari</li>
+                    <li>Procedure emergenza ed evacuazione</li>
+                    <li>Mansionari e organigramma sicurezza</li>
+                    <li>Cronoprogramma interventi</li>
+                    <li>Aggiornamenti per modifiche aziendali</li>
+                </ul>
+                
+                <h4>Valutazioni Specifiche</h4>
+                <ul>
+                    <li>Rischio chimico e agenti cancerogeni</li>
+                    <li>Rischio biologico</li>
+                    <li>Rischio stress lavoro-correlato</li>
+                    <li>Rischio vibrazioni (mano-braccio e corpo intero)</li>
+                    <li>Rischio rumore</li>
+                    <li>Rischio movimentazione manuale carichi</li>
+                    <li>Rischio da videoterminali</li>
+                    <li>DUVRI (interferenze)</li>
+                </ul>
+            </div>
+            
+            <!-- PROCEDURE -->
+            <div class="service-card">
+                <h3>📖 Procedure e Documentazione</h3>
+                <p class="subtitle">Gestione Documentale Sicurezza</p>
+                <p>
+                    Predisposizione di tutta la documentazione necessaria per la gestione operativa 
+                    della sicurezza aziendale e la conformità normativa.
+                </p>
+                
+                <h4>Documentazione Obbligatoria</h4>
+                <ul>
+                    <li>Piano emergenza ed evacuazione</li>
+                    <li>Procedure operative di sicurezza</li>
+                    <li>Istruzioni di lavoro specifiche</li>
+                    <li>Registro infortuni</li>
+                    <li>Registro controlli periodici</li>
+                    <li>Nomine e deleghe di funzione</li>
+                    <li>Verbali riunioni periodiche</li>
+                    <li>Modulistica gestionale completa</li>
+                </ul>
+                
+                <h4>Documenti Operativi</h4>
+                <ul>
+                    <li>Schede consegna DPI</li>
+                    <li>Registro formazione</li>
+                    <li>Check list verifiche</li>
+                    <li>Autorizzazioni lavori</li>
+                    <li>Segnalazioni near miss</li>
+                    <li>Indagini infortuni</li>
+                    <li>Schede sostanze pericolose</li>
+                    <li>Libretti istruzioni attrezzature</li>
+                </ul>
+            </div>
+            
+            <!-- VERIFICHE -->
+            <div class="service-card">
+                <h3>🔍 Verifiche e Sopralluoghi</h3>
+                <p class="subtitle">Ispezioni Periodiche e Audit</p>
+                <p>
+                    Verifiche periodiche degli ambienti di lavoro, attrezzature, dispositivi di protezione 
+                    e rispetto delle procedure operative per garantire la sicurezza continua.
+                </p>
+                
+                <h4>Sopralluoghi Periodici</h4>
+                <ul>
+                    <li>Verifica idoneità luoghi di lavoro</li>
+                    <li>Controllo attrezzature e macchine</li>
+                    <li>Verifica utilizzo DPI</li>
+                    <li>Controllo segnaletica di sicurezza</li>
+                    <li>Verifica presidi emergenza</li>
+                    <li>Controllo impianti elettrici</li>
+                    <li>Report fotografico dettagliato</li>
+                    <li>Piano azioni correttive prioritizzato</li>
+                </ul>
+                
+                <h4>Verifiche Specifiche</h4>
+                <ul>
+                    <li>Audit comportamentali</li>
+                    <li>Verifiche conformità legislativa</li>
+                    <li>Controlli pre-uso attrezzature</li>
+                    <li>Verifiche scaffalature e stoccaggio</li>
+                    <li>Controllo sostanze pericolose</li>
+                    <li>Verifica vie esodo e uscite emergenza</li>
+                    <li>Test evacuazione</li>
+                    <li>Near miss investigation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- FORMAZIONE -->
+        <div class="formazione-section">
+            <h2>🎓 Formazione Obbligatoria</h2>
+            <p class="intro">
+                Corsi di formazione per lavoratori, preposti, dirigenti e figure specialistiche in 
+                conformità agli Accordi Stato-Regioni e normative specifiche del settore.
+            </p>
+            
+            <div class="corsi-grid">
+                <div class="corso-card">
+                    <h4>👷 Lavoratori</h4>
+                    <p>Formazione generale e specifica sui rischi aziendali e mansioni specifiche</p>
+                    <div class="corso-meta">
+                        <span>⏱ 8/12/16 ore</span>
+                        <span>🔄 Agg. 6 ore/5 anni</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>👔 Preposti</h4>
+                    <p>Formazione per la sorveglianza e coordinamento delle attività lavorative</p>
+                    <div class="corso-meta">
+                        <span>⏱ 8 ore</span>
+                        <span>🔄 Agg. 6 ore/5 anni</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>💼 Dirigenti</h4>
+                    <p>Formazione per dirigenti con responsabilità in materia di sicurezza</p>
+                    <div class="corso-meta">
+                        <span>⏱ 16 ore</span>
+                        <span>🔄 Agg. 6 ore/5 anni</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>🔥 Antincendio</h4>
+                    <p>Addetti antincendio rischio basso, medio, alto secondo D.M. 2/9/2021</p>
+                    <div class="corso-meta">
+                        <span>⏱ 4/8/16 ore</span>
+                        <span>🔄 Agg. periodico</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>🚑 Primo Soccorso</h4>
+                    <p>Addetti primo soccorso aziendale gruppo A, B o C</p>
+                    <div class="corso-meta">
+                        <span>⏱ 12/16 ore</span>
+                        <span>🔄 Agg. 4/6 ore/3 anni</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>⚡ PES/PAV</h4>
+                    <p>Qualifica personale per lavori su impianti elettrici CEI 11-27</p>
+                    <div class="corso-meta">
+                        <span>⏱ 16 ore</span>
+                        <span>🔄 Agg. ogni 5 anni</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>🏗️ Lavori in Quota</h4>
+                    <p>Uso DPI 3° categoria anticaduta e lavori su funi</p>
+                    <div class="corso-meta">
+                        <span>⏱ 8/16 ore</span>
+                        <span>🔄 Agg. periodico</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>🚧 Spazi Confinati</h4>
+                    <p>Lavori in ambienti sospetti di inquinamento (DPR 177/2011)</p>
+                    <div class="corso-meta">
+                        <span>⏱ 8 ore</span>
+                        <span>🔄 Agg. periodico</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>🏗️ Ponteggi</h4>
+                    <p>Montaggio, uso e smontaggio ponteggi (Pi.M.U.S.)</p>
+                    <div class="corso-meta">
+                        <span>⏱ 28 ore</span>
+                        <span>🔄 Agg. 4 ore/4 anni</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>🚜 Macchine Operatrici</h4>
+                    <p>Carrelli elevatori, piattaforme, gru, escavatori</p>
+                    <div class="corso-meta">
+                        <span>⏱ 12/16 ore</span>
+                        <span>🔄 Agg. 4 ore/5 anni</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>☣️ Amianto</h4>
+                    <p>Lavoratori esposti ad amianto art. 250 e 259 D.Lgs. 81/08</p>
+                    <div class="corso-meta">
+                        <span>⏱ 30 ore</span>
+                        <span>🔄 Agg. annuale</span>
+                    </div>
+                </div>
+                
+                <div class="corso-card">
+                    <h4>👨‍💼 RLS</h4>
+                    <p>Rappresentante dei Lavoratori per la Sicurezza</p>
+                    <div class="corso-meta">
+                        <span>⏱ 32 ore</span>
+                        <span>🔄 Agg. 4/8 ore/anno</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RSPP BENEFITS -->
+        <div class="rspp-section">
+            <h2>🔧 Perché Scegliere il Nostro Servizio RSPP</h2>
+            <div class="rspp-benefits">
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <h4>Conformità Garantita</h4>
+                    <p>Piena conformità al D.Lgs. 81/08 e aggiornamenti normativi continui</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">💰</span>
+                    <h4>Costi Certi</h4>
+                    <p>Canone mensile fisso tutto incluso, senza sorprese o costi extra</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">📱</span>
+                    <h4>Supporto Continuo</h4>
+                    <p>Assistenza telefonica e email illimitata per qualsiasi urgenza</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎓</span>
+                    <h4>Formazione Inclusa</h4>
+                    <p>Pianificazione e organizzazione della formazione obbligatoria</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔍</span>
+                    <h4>Sopralluoghi Regolari</h4>
+                    <p>Verifiche periodiche con report dettagliati e piano miglioramenti</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🛡️</span>
+                    <h4>Tranquillità Totale</h4>
+                    <p>Riduci il rischio di sanzioni e proteggi efficacemente i lavoratori</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Metti in Sicurezza la Tua Azienda</h2>
+            <p>Contattaci per un preventivo personalizzato e scopri come possiamo aiutarti nella gestione della sicurezza</p>
+            <a href="contatti.html" class="btn btn-primary">📧 Richiedi Consulenza Gratuita</a>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    Enne<span>SG</span>
+                </div>
+                <p style="margin-bottom: 20px;">
+                    <strong>Sistemi di Gestione</strong>
+                </p>
+                <p>
+                    Consulenza e Formazione professionale per Sistemi ISO e Sicurezza sul Lavoro D.Lgs. 81/08
+                </p>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn">💼</a>
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Instagram">📷</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Servizi</h3>
+                <a href="servizi.html">Consulenza ISO</a>
+                <a href="servizi.html">Formazione Aziendale</a>
+                <a href="sicurezza.html">RSPP Esterno</a>
+                <a href="sicurezza.html">Valutazione Rischi</a>
+                <a href="iso.html">Audit e Certificazioni</a>
+                <a href="servizi.html">Corsi Sicurezza</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Sistemi ISO</h3>
+                <a href="iso.html">ISO 9001 - Qualità</a>
+                <a href="iso.html">ISO 14001 - Ambiente</a>
+                <a href="iso.html">ISO 45001 - Sicurezza</a>
+                <a href="iso.html">ISO 27001 - Informazioni</a>
+                <a href="iso.html">Gap Analysis</a>
+                <a href="iso.html">Mantenimento</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p>📧 <strong>Email:</strong><br>info@ennesg.it</p>
+                <p>📱 <strong>Telefono:</strong><br>+39 XXX XXX XXXX</p>
+                <p>📍 <strong>Sede:</strong><br>[Indirizzo completo]</p>
+                <p>🕐 <strong>Orari:</strong><br>Lun-Ven: 9:00 - 18:00</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 EnneSG Sistemi di Gestione. Tutti i diritti riservati.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                P.IVA: XXXXXXXXXXX | Privacy Policy | Cookie Policy
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
