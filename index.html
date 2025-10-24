@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EnneSG Sistemi di Gestione - Consulenza e Formazione per ISO e Sicurezza sul Lavoro D.Lgs. 81/08">
-    <title>EnneSG Sistemi di Gestione | Consulenza ISO e D.Lgs. 81/08</title>
+    <meta name="description" content="EnneSG - Consulenza ISO e Sicurezza sul Lavoro. Partner affidabile per la crescita della tua azienda.">
+    <title>EnneSG | Sistemi di Gestione e Sicurezza sul Lavoro</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,6 @@
             --dark: #1e293b;
             --light: #f8fafc;
             --gray: #64748b;
-            --success: #10b981;
         }
         
         body {
@@ -91,6 +90,8 @@
             font-size: 2rem;
             font-weight: 700;
             letter-spacing: -1px;
+            text-decoration: none;
+            color: white;
         }
         
         .logo span {
@@ -118,234 +119,191 @@
             transition: all 0.3s;
         }
         
-        nav a:hover {
+        nav a:hover,
+        nav a.active {
             background: rgba(255,255,255,0.1);
         }
         
-        /* HERO SECTION */
+        /* HERO */
         .hero {
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
         }
         
         .hero h1 {
             font-size: 3.5rem;
+            margin-bottom: 25px;
             color: var(--dark);
-            margin-bottom: 20px;
-            line-height: 1.2;
         }
         
-        .hero h1 span {
+        .hero h1 .highlight {
             color: var(--primary-color);
         }
         
-        .hero-subtitle {
-            font-size: 1.5rem;
+        .hero p {
+            font-size: 1.4rem;
             color: var(--gray);
-            margin-bottom: 40px;
+            max-width: 800px;
+            margin: 0 auto 40px;
         }
         
-        .hero-badges {
+        .hero-cta {
             display: flex;
+            gap: 20px;
             justify-content: center;
-            gap: 30px;
             flex-wrap: wrap;
-            margin-top: 40px;
         }
         
-        .badge {
+        /* CHI SIAMO */
+        .about {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        
+        .about p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        /* AREE PRINCIPALI */
+        .aree-section {
+            background: var(--light);
+            padding: 80px 20px;
+        }
+        
+        .aree-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--dark);
+        }
+        
+        .aree-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .area-card {
             background: white;
-            padding: 20px 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            font-weight: 600;
-            color: var(--primary-color);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 5px solid var(--primary-color);
         }
         
-        /* SERVICES SECTION */
-        .services {
+        .area-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .area-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+        }
+        
+        .area-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .area-card p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .area-card .btn-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .area-card .btn-link:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+        
+        /* PERCHE' SCEGLIERCI */
+        .why-section {
             max-width: 1200px;
             margin: 80px auto;
             padding: 0 20px;
         }
         
-        .section-title {
+        .why-section h2 {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 60px;
             color: var(--dark);
         }
         
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 60px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .services-grid {
+        .why-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
         }
         
-        .service-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 40px;
-            transition: all 0.3s;
+        .why-item {
             text-align: center;
+            padding: 30px;
         }
         
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-color: var(--primary-color);
-        }
-        
-        .service-icon {
-            font-size: 3.5rem;
+        .why-icon {
+            font-size: 3rem;
             margin-bottom: 20px;
         }
         
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+        .why-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
             color: var(--dark);
         }
         
-        .service-card p {
+        .why-item p {
             color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 25px;
+            line-height: 1.7;
         }
         
-        .service-card ul {
-            list-style: none;
-            text-align: left;
-        }
-        
-        .service-card li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-            color: var(--gray);
-        }
-        
-        .service-card li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        /* AREAS SECTION */
-        .areas {
+        /* CTA FINALE */
+        .cta-final {
             background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
             color: white;
             padding: 80px 20px;
-        }
-        
-        .areas-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .areas h2 {
             text-align: center;
+        }
+        
+        .cta-final h2 {
             font-size: 2.5rem;
-            margin-bottom: 60px;
-        }
-        
-        .areas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .area-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .area-card:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-        }
-        
-        .area-icon {
-            font-size: 4rem;
             margin-bottom: 20px;
         }
         
-        .area-card h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .area-card p {
+        .cta-final p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
             opacity: 0.95;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-        
-        .area-card ul {
-            list-style: none;
-            text-align: left;
-        }
-        
-        .area-card li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .area-card li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
-        
-        /* CTA SECTION */
-        .cta {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-radius: 20px;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-        
-        .cta p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 30px;
         }
         
         .btn {
@@ -360,25 +318,23 @@
         }
         
         .btn-primary {
-            background: var(--primary-color);
+            background: var(--secondary-color);
             color: white;
         }
         
         .btn-primary:hover {
-            background: #1e40af;
+            background: #d97706;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37,99,235,0.3);
         }
         
         .btn-secondary {
             background: white;
             color: var(--primary-color);
-            border: 2px solid var(--primary-color);
         }
         
         .btn-secondary:hover {
-            background: var(--primary-color);
-            color: white;
+            background: var(--light);
+            transform: translateY(-2px);
         }
         
         /* FOOTER */
@@ -436,29 +392,6 @@
             color: #94a3b8;
         }
         
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-        
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .header-main {
@@ -488,12 +421,8 @@
                 font-size: 2.5rem;
             }
             
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
+            .aree-grid {
+                grid-template-columns: 1fr;
             }
             
             .header-top-content {
@@ -530,16 +459,16 @@
         
         <div class="header-main">
             <div class="logo-section">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     Enne<span>SG</span>
-                </div>
+                </a>
                 <div class="tagline">
                     Sistemi di Gestione
                 </div>
             </div>
             
             <nav>
-                <a href="index.html">Home</a>
+                <a href="index.html" class="active">Home</a>
                 <a href="servizi.html">Servizi</a>
                 <a href="iso.html">ISO</a>
                 <a href="sicurezza.html">D.Lgs. 81/08</a>
@@ -548,108 +477,122 @@
         </div>
     </header>
     
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>
-                <span>Consulenza</span> e <span>Formazione</span><br>
-                per la Tua Azienda
-            </h1>
-            <p class="hero-subtitle">
-                Partner affidabile per Sistemi di Gestione ISO e Sicurezza sul Lavoro
-            </p>
-            <div class="hero-badges">
-                <div class="badge">✓ Certificazioni ISO</div>
-                <div class="badge">✓ Conformità D.Lgs. 81/08</div>
-                <div class="badge">✓ Formazione Professionale</div>
-                <div class="badge">✓ Supporto Continuo</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SERVICES SECTION -->
-    <section class="services" id="servizi">
-        <h2 class="section-title">I Nostri Servizi</h2>
-        <p class="section-subtitle">
-            Soluzioni complete per la gestione aziendale e la conformità normativa
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Il Partner per la <span class="highlight">Tua Crescita</span></h1>
+        <p>
+            Consulenza specializzata e Formazione professionale per Sistemi ISO e Sicurezza sul Lavoro
         </p>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">📋</div>
-                <h3>Consulenza</h3>
-                <p>Supporto specializzato per l'implementazione e il mantenimento dei sistemi di gestione aziendali</p>
-                <ul>
-                    <li>Analisi e diagnosi aziendale</li>
-                    <li>Progettazione su misura</li>
-                    <li>Implementazione operativa</li>
-                    <li>Supporto alla certificazione</li>
-                    <li>Audit interni</li>
-                    <li>Assistenza continuativa</li>
-                </ul>
+        <div class="hero-cta">
+            <a href="contatti.html" class="btn btn-primary">📧 Richiedi Consulenza Gratuita</a>
+            <a href="tel:+393756716804" class="btn btn-secondary">📱 Chiamaci Ora</a>
+        </div>
+    </section>
+    
+    <!-- CHI SIAMO -->
+    <section class="about">
+        <h2>Chi Siamo</h2>
+        <p>
+            <strong>EnneSG</strong> è un partner affidabile per aziende che vogliono crescere in qualità, 
+            sicurezza e conformità normativa.
+        </p>
+        <p>
+            Offriamo consulenza specializzata per l'implementazione di Sistemi di Gestione ISO 
+            e servizi completi per la Sicurezza sul Lavoro secondo il D.Lgs. 81/08, con supporto 
+            continuo dalla valutazione iniziale alla certificazione e oltre.
+        </p>
+    </section>
+    
+    <!-- AREE PRINCIPALI -->
+    <section class="aree-section">
+        <h2>Le Nostre Aree di Competenza</h2>
+        <div class="aree-grid">
+            <!-- ISO -->
+            <div class="area-card">
+                <div class="area-icon">⚙️</div>
+                <h3>Sistemi ISO</h3>
+                <p>
+                    Consulenza per certificazioni ISO 9001, 14001, 45001, 27001. 
+                    Ti accompagniamo dalla gap analysis alla certificazione con 
+                    supporto continuo per il mantenimento.
+                </p>
+                <a href="iso.html" class="btn-link">Scopri di più →</a>
             </div>
             
-            <div class="service-card">
-                <div class="service-icon">🎓</div>
+            <!-- SICUREZZA -->
+            <div class="area-card">
+                <div class="area-icon">🛡️</div>
+                <h3>Sicurezza D.Lgs. 81/08</h3>
+                <p>
+                    RSPP esterno, Valutazione Rischi (DVR), procedure operative 
+                    e formazione obbligatoria. Piena conformità normativa per 
+                    la tua azienda.
+                </p>
+                <a href="sicurezza.html" class="btn-link">Scopri di più →</a>
+            </div>
+            
+            <!-- FORMAZIONE -->
+            <div class="area-card">
+                <div class="area-icon">🎓</div>
                 <h3>Formazione</h3>
-                <p>Corsi qualificati per lo sviluppo delle competenze del personale aziendale</p>
-                <ul>
-                    <li>Formazione obbligatoria</li>
-                    <li>Corsi specialistici</li>
-                    <li>Aggiornamenti periodici</li>
-                    <li>Formazione personalizzata</li>
-                    <li>Certificazioni riconosciute</li>
-                    <li>Modalità online e in presenza</li>
-                </ul>
+                <p>
+                    Corsi obbligatori e specialistici per lavoratori, preposti, 
+                    dirigenti. PES/PAV, Primo Soccorso, Antincendio, Spazi Confinati 
+                    e molto altro.
+                </p>
+                <a href="servizi.html" class="btn-link">Scopri di più →</a>
             </div>
         </div>
     </section>
     
-    <!-- AREAS SECTION -->
-    <section class="areas" id="aree">
-        <div class="areas-content">
-            <h2>Le Nostre Aree di Competenza</h2>
+    <!-- PERCHE' SCEGLIERCI -->
+    <section class="why-section">
+        <h2>Perché Scegliere EnneSG</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="why-icon">🎯</div>
+                <h4>Esperienza</h4>
+                <p>Anni di consulenza in diversi settori industriali e dimensioni aziendali</p>
+            </div>
             
-            <div class="areas-grid">
-                <div class="area-card">
-                    <div class="area-icon">⚙️</div>
-                    <h3>Sistemi ISO</h3>
-                    <p>Consulenza specializzata per l'implementazione e certificazione degli standard internazionali</p>
-                    <ul>
-                        <li>ISO 9001 - Qualità</li>
-                        <li>ISO 14001 - Ambiente</li>
-                        <li>ISO 45001 - Sicurezza</li>
-                        <li>ISO 27001 - Informazioni</li>
-                        <li>Gap Analysis</li>
-                        <li>Preparazione audit</li>
-                        <li>Mantenimento certificazioni</li>
-                    </ul>
-                </div>
-                
-                <div class="area-card">
-                    <div class="area-icon">🛡️</div>
-                    <h3>D.Lgs. 81/08</h3>
-                    <p>Gestione completa della sicurezza e salute nei luoghi di lavoro</p>
-                    <ul>
-                        <li>RSPP Esterno</li>
-                        <li>Valutazione Rischi (DVR)</li>
-                        <li>Procedure di sicurezza</li>
-                        <li>Formazione lavoratori</li>
-                        <li>Corsi specialistici</li>
-                        <li>Sopralluoghi periodici</li>
-                        <li>Supporto normativo</li>
-                    </ul>
-                </div>
+            <div class="why-item">
+                <div class="why-icon">🤝</div>
+                <h4>Su Misura</h4>
+                <p>Soluzioni personalizzate sulle tue specifiche esigenze aziendali</p>
+            </div>
+            
+            <div class="why-item">
+                <div class="why-icon">💼</div>
+                <h4>Supporto Continuo</h4>
+                <p>Assistenza costante anche dopo certificazione e formazione</p>
+            </div>
+            
+            <div class="why-item">
+                <div class="why-icon">⚡</div>
+                <h4>Tempistiche Chiare</h4>
+                <p>Pianificazione realistica e rispetto delle scadenze concordate</p>
+            </div>
+            
+            <div class="why-item">
+                <div class="why-icon">📊</div>
+                <h4>Risultati Concreti</h4>
+                <p>Focus su miglioramenti misurabili: efficienza, qualità, sicurezza</p>
+            </div>
+            
+            <div class="why-item">
+                <div class="why-icon">🎓</div>
+                <h4>Formazione Pratica</h4>
+                <p>Non solo teoria: applicazione immediata di quanto appreso</p>
             </div>
         </div>
     </section>
     
-    <!-- CTA SECTION -->
-    <section class="cta" id="contatti">
-        <h2>Inizia il Tuo Percorso</h2>
+    <!-- CTA FINALE -->
+    <section class="cta-final">
+        <h2>Inizia il Tuo Percorso di Crescita</h2>
         <p>Contattaci per una consulenza gratuita e scopri come possiamo aiutare la tua azienda</p>
         <div>
-            <a href="mailto:domeniko.nikolo@icloud.com" class="btn btn-primary">📧 Richiedi Consulenza</a>
+            <a href="contatti.html" class="btn btn-primary">📧 Richiedi Consulenza</a>
             <a href="tel:+393756716804" class="btn btn-secondary">📱 Chiamaci</a>
         </div>
     </section>

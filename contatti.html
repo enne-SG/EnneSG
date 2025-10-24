@@ -311,6 +311,71 @@
             box-shadow: 0 5px 15px rgba(37,99,235,0.3);
         }
         
+        /* CONTACT METHODS */
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-method-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .contact-method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .method-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-method-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .contact-method-card p {
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+        
+        .method-link {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .contact-note {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .contact-note p {
+            margin-bottom: 5px;
+            line-height: 1.8;
+        }
+        
+        .contact-note strong {
+            color: var(--dark);
+        }
+        
         /* FAQ SECTION */
         .faq-section {
             background: var(--light);
@@ -646,55 +711,39 @@
                 </div>
             </div>
             
-            <!-- CONTACT FORM -->
+            <!-- METODI DI CONTATTO -->
             <div class="contact-form">
-                <h2>Richiedi Informazioni</h2>
-                <p class="subtitle">Compila il form e ti ricontatteremo entro 24 ore</p>
+                <h2>Come Preferisci Contattarci?</h2>
+                <p class="subtitle">Scegli il metodo più comodo per te</p>
                 
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="nome">Nome e Cognome *</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
+                <div class="contact-methods">
+                    <a href="mailto:domeniko.nikolo@icloud.com" class="contact-method-card">
+                        <div class="method-icon">📧</div>
+                        <h3>Email</h3>
+                        <p>Scrivici una email</p>
+                        <span class="method-link">domeniko.nikolo@icloud.com</span>
+                    </a>
                     
-                    <div class="form-group">
-                        <label for="azienda">Azienda</label>
-                        <input type="text" id="azienda" name="azienda">
-                    </div>
+                    <a href="tel:+393756716804" class="contact-method-card">
+                        <div class="method-icon">📱</div>
+                        <h3>Telefono</h3>
+                        <p>Chiamaci direttamente</p>
+                        <span class="method-link">+39 375 671 6804</span>
+                    </a>
                     
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="telefono">Telefono *</label>
-                        <input type="tel" id="telefono" name="telefono" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="servizio">Servizio di Interesse</label>
-                        <select id="servizio" name="servizio">
-                            <option value="">Seleziona...</option>
-                            <option value="iso9001">ISO 9001 - Qualità</option>
-                            <option value="iso14001">ISO 14001 - Ambiente</option>
-                            <option value="iso45001">ISO 45001 - Sicurezza</option>
-                            <option value="iso27001">ISO 27001 - Informazioni</option>
-                            <option value="rspp">RSPP Esterno</option>
-                            <option value="dvr">Valutazione Rischi (DVR)</option>
-                            <option value="formazione">Formazione Sicurezza</option>
-                            <option value="consulenza">Consulenza Generale</option>
-                            <option value="altro">Altro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="messaggio">Messaggio *</label>
-                        <textarea id="messaggio" name="messaggio" required placeholder="Descrivi brevemente la tua richiesta..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">📧 Invia Richiesta</button>
-                </form>
+                    <a href="https://wa.me/393756716804" target="_blank" class="contact-method-card">
+                        <div class="method-icon">💬</div>
+                        <h3>WhatsApp</h3>
+                        <p>Chatta con noi</p>
+                        <span class="method-link">Avvia chat</span>
+                    </a>
+                </div>
+                
+                <div class="contact-note">
+                    <p><strong>📍 Oppure vieni a trovarci:</strong></p>
+                    <p>Via Emilio Alessandrini, 3<br>85028 Rionero in Vulture (PZ)</p>
+                    <p style="margin-top: 15px;"><strong>🕐 Orari:</strong> Lun-Ven 9:00-18:00</p>
+                </div>
             </div>
         </div>
         
