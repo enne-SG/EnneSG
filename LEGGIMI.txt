@@ -1,0 +1,1 @@
+Carica entrambi i file nella root del sito GitHub Pages (stesso livello di index.html).

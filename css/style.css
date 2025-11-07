@@ -1,0 +1,133 @@
+/* =========================
+   EnneSG — style.css
+   ========================= */
+
+:root {
+  --colore-blu: #0e2a47;
+  --colore-arancio: #f47c20;
+  --colore-grigio: #f7f7f7;
+  --colore-testo: #333;
+  --font-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-base);
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: var(--colore-testo);
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--colore-blu);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin: 0.3rem 0 1rem;
+  font-size: 1rem;
+  color: #d0d0d0;
+}
+
+nav a {
+  color: var(--colore-arancio);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+#hero {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--colore-grigio);
+}
+
+#hero h2 {
+  font-size: 1.6rem;
+  color: var(--colore-blu);
+}
+
+#hero p {
+  max-width: 600px;
+  margin: 0.5rem auto 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--colore-arancio);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #d86b1b;
+}
+
+main section {
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main h2 {
+  color: var(--colore-blu);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+main h3 {
+  color: var(--colore-arancio);
+  margin-top: 1.5rem;
+}
+
+#contatti ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+#contatti li {
+  margin: 0.4rem 0;
+}
+
+#contatti a {
+  color: var(--colore-arancio);
+  text-decoration: none;
+}
+
+#contatti a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--colore-blu);
+  color: white;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  #hero img {
+    width: 100%;
+  }
+}
